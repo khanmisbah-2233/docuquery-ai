@@ -115,6 +115,24 @@ streamlit run app.py
 
 Open the local URL printed by Streamlit, upload one or more PDFs, index them, then ask questions from the indexed content.
 
+## Streamlit Cloud Secrets
+
+Do not upload `.env` or real API keys to GitHub. For Streamlit Cloud, open your app settings and add these values in **Secrets**:
+
+```toml
+PINECONE_API_KEY = "your-pinecone-api-key"
+PINECONE_INDEX_NAME = "docuquery-rag"
+PINECONE_CLOUD = "aws"
+PINECONE_REGION = "us-east-1"
+PINECONE_NAMESPACE = "course-assignment"
+
+LLM_PROVIDER = "groq"
+GROQ_API_KEY = "your-groq-api-key"
+GROQ_MODEL = "llama-3.3-70b-versatile"
+```
+
+The app reads local `.env` values first and then Streamlit secrets when deployed.
+
 ## Pinecone Configuration
 
 The default Pinecone configuration is:
